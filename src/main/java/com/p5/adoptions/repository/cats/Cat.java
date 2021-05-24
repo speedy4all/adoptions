@@ -1,51 +1,27 @@
 package com.p5.adoptions.repository.cats;
 
+import com.p5.adoptions.repository.animals.Animal;
+
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 
 @Entity
-public class Cat
+public class Cat extends Animal
 {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
-
-    private String name;
-    private String url;
+    private String purrLevel;
 
 
-    public Integer getId()
+    public Cat()
     {
-        return id;
     }
 
-    public Cat setId(Integer id)
+    public String getPurrLevel()
     {
-        this.id = id;
-        return this;
+        return purrLevel;
     }
 
-    public String getName()
+    public Cat setPurrLevel(String purrLevel)
     {
-        return name;
-    }
-
-    public Cat setName(String name)
-    {
-        this.name = name;
-        return this;
-    }
-
-    public String getUrl()
-    {
-        return url;
-    }
-
-    public Cat setUrl(String url)
-    {
-        this.url = url;
+        this.purrLevel = purrLevel;
         return this;
     }
 }

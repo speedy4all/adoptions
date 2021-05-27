@@ -6,7 +6,7 @@ import com.p5.adoptions.repository.animals.Animal;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AnimalAdpater
+public class AnimalAdapter
 {
     public static Animal fromDto(AnimalDTO AnimalDTO)
     {
@@ -14,7 +14,7 @@ public class AnimalAdpater
         {
             AnimalDTO.setName("Generic Animal");
         }
-        return new Animal().setName(AnimalDTO.getName()).setPhotoUrl(AnimalDTO.getPhotoUrl());
+        return new Animal().setName(AnimalDTO.getName()).setPhotoUrl(AnimalDTO.getPhotoUrl()).setId(AnimalDTO.getId());
     }
 
     public static List<Animal> fromDto(List<AnimalDTO> dtos)
@@ -39,6 +39,15 @@ public class AnimalAdpater
         AnimalList.forEach(Animal -> dtoList.add(toDto(Animal)));
 
         return dtoList;
+    }
+
+    public static List<Animal> fromListDto(List<AnimalDTO> animalDTOList)
+    {
+        List<Animal> animals = new ArrayList<>();
+
+        animalDTOList.forEach(animalDTO -> animals.add(fromDto(animalDTO)));
+
+        return animals;
     }
 
 }

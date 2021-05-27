@@ -27,5 +27,12 @@ public class CatAdapter {
         return dtoList;
     }
 
+    public static List<Cat> fromListDto(List<CatDTO> catDTOList) {
+        List<Cat> cats = new ArrayList<>();
+
+        catDTOList.forEach(catDTO -> cats.add(fromDto(catDTO)));
+
+        return cats;
+    }
 
 }

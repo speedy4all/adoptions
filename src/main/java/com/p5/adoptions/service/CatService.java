@@ -27,7 +27,7 @@ public class CatService {
     }
 
     public ListDTO<CatDTO> findAll() {
-        List<CatDTO> cats = CatAdapter.toListDto(catRepository.findAll().stream().filter(cat -> cat.getId() != 2).collect(Collectors.toList()));
+        List<CatDTO> cats = CatAdapter.toListDto(catRepository.findAll());
         long totalCount = catRepository.count();
 
         return new ListDTO<>(Math.toIntExact(totalCount), cats);

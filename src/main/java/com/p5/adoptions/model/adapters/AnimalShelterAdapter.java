@@ -12,12 +12,11 @@ public class AnimalShelterAdapter
         {
             shelterDTO.setName("Generic shelter");
         }
-        AnimalShelter animalShelter = new AnimalShelter()
+        return new AnimalShelter()
                 .setAddress(shelterDTO.getAddress())
                 .setName(shelterDTO.getName())
                 .setId(shelterDTO.getId())
-                .setAnimals(AnimalAdpater.fromDto(shelterDTO.getAnimals()));
-        return animalShelter;
+                .setAnimals(AnimalAdapter.fromListDto(shelterDTO.getAnimals()));
     }
 
     public static AnimalShelterDTO toDto(AnimalShelter shelter)
@@ -26,7 +25,7 @@ public class AnimalShelterAdapter
                 .setAddress(shelter.getAddress())
                 .setId(shelter.getId())
                 .setName(shelter.getName())
-                .setAnimals(AnimalAdpater.toListDto(shelter.getAnimals()));
+                .setAnimals(AnimalAdapter.toListDto(shelter.getAnimals()));
     }
 
 }

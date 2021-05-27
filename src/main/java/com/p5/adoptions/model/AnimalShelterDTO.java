@@ -1,12 +1,27 @@
 package com.p5.adoptions.model;
 
+
+import com.p5.adoptions.model.validations.OnCreate;
+import com.p5.adoptions.model.validations.OnUpdate;
+
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Null;
 import java.util.ArrayList;
 import java.util.List;
 
 public class AnimalShelterDTO
 {
+    @Null(groups = OnCreate.class)
+    @NotNull(groups = OnUpdate.class)
     private Integer id;
+
+    @NotNull
+    @NotBlank(message = "Must have value")
     private String name;
+
+    @NotBlank
+    @NotNull
     private String address;
     List<AnimalDTO> animals = new ArrayList<>();
 

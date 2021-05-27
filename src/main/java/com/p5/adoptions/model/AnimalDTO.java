@@ -1,8 +1,17 @@
 package com.p5.adoptions.model;
 
-public class AnimalDTO
-{
+import org.springframework.lang.NonNull;
+
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+
+
+public class AnimalDTO {
+
+    @NotNull
     protected Integer id;
+
+    @NotEmpty(message = "Name can not be empty")
     protected String name;
     protected String photoUrl;
 

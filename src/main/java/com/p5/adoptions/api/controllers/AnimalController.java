@@ -44,6 +44,7 @@ public class AnimalController
             return ResponseEntity.badRequest().body(animal);
         }
         AnimalStore.available.add(animal);
+
         return ResponseEntity.ok(animal);
     }
 

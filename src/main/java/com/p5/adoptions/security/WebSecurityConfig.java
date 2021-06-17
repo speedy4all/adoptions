@@ -33,7 +33,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter
             .antMatchers("/v1/shelters/*").hasRole("USER")
             .anyRequest().authenticated()
             .and()
-            .httpBasic();
+            .httpBasic()
+            .and().csrf().disable();
     }
 
     @Override

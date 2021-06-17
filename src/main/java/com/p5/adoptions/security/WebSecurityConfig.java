@@ -30,6 +30,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter
     {
         http.authorizeRequests()
             .antMatchers("/api/v1/animals/hello").permitAll()
+            .antMatchers("/v1/shelters/*").hasRole("USER")
             .anyRequest().authenticated()
             .and()
             .httpBasic();
